@@ -1,0 +1,17 @@
+h1{
+    font-weight: 800;
+font-size: 32px;
+line-height: 90%;
+text-align: center;
+color: #e9c597;
+text-align: center;
+padding-top: 80px;
+margin-bottom: 114px;
+}
+
+.container{
+    display: flex;
+    max-width: 912px;
+    width: 100%;
+    margin: auto;
+}

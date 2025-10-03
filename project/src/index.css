@@ -1,0 +1,11 @@
+
+
+body.mode-light {
+    background: #f7ecde;
+    transition:  0.5s ease, color 0.5s ease;
+}
+
+body.mode-dark {
+    background: #1c273c; 
+    transition:  0.5s ease, color 0.5s ease;
+}
