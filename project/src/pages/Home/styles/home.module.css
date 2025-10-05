@@ -12,6 +12,8 @@ margin-bottom: 114px;
 .container{
     display: flex;
     max-width: 950px;
+    min-height: 514px;
     width: 100%;
     margin: auto;
+    gap: 10px;
 }

@@ -4,10 +4,11 @@ import { useState } from "react";
 import DelBtn from '../../../assets/img/del_btn.svg';
 import { useDeleteTodo } from "../../../api/delTodos";
 import { useNavigate } from "@tanstack/react-router";
+import type { FilterValue } from "../../../shared/types/TasksTypes";
 
 import styles from '../styles/list_tasks.module.css';
 
-export function TaskList () {
+export function TaskList ({filter}: {filter: FilterValue}) {
     const[page, setPage] = useState(1)
     const navigate = useNavigate()
     const { mutate } = useDeleteTodo(page)
@@ -17,6 +18,13 @@ export function TaskList () {
      queryFn: ({ signal }) => getTodos({ page }, { signal }),
     placeholderData:keepPreviousData 
    })
+
+   const filteredData = data?.filter(item => {
+    if (filter === 'true') return item.completed === true;
+    if (filter === 'false') return item.completed === false;
+    return true;
+    });
+    console.log(filteredData)
 
     const handlerNav = (id: string) => {
     navigate({ to: '/$taskId', params: { taskId: id } });
@@ -37,7 +45,7 @@ export function TaskList () {
         <div>
             <div className={styles.container}>
                 <ul>
-                {data?.map(item => (
+                {filteredData?.map(item => (
                     <li key={item.id}>
                         <input type="checkbox" checked={item.completed} readOnly/>
                         {item.title}

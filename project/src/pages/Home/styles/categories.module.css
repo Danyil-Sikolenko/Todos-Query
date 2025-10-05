@@ -1,0 +1,13 @@
+.container_btn{
+    display: flex;
+    flex-direction: column;
+}
+
+.container{
+border-radius: 10px;
+width: 250px;
+background: #54bab9;
+}
+.active{
+  color: brown;
+}
