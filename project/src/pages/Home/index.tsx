@@ -9,10 +9,10 @@ export function Home () {
         <>
         <h1 className={styles.h1}>PERSONAL<br/>TASK MANAGER</h1>
         <div className={styles.container}>
-            <div><Categories/></div>
+            <Categories/>
             <div>
-            <div><NewTasks/></div>
-            <div><TaskList/></div>
+            <NewTasks />
+            <TaskList/>
             </div>
         </div>
         </>

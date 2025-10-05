@@ -5,7 +5,7 @@
     background: #54bab9;
     padding-left: 30px;
     border-radius: 10px;
-    max-width: 650px;
+    max-width: 680px;
     width: 100%;
     position: relative;
     margin-bottom: 15px;
@@ -15,7 +15,7 @@
     font-weight: 700;
     font-size: 20px;
     color: #1d8a8a;
-    margin-right: 110px;
+    margin-right: 105px;
 }
 
 .container .btn_add_tasks{
@@ -27,7 +27,7 @@
     border-radius: 10px;
     border: none;
     padding: 6px 29px;
-    margin-right: 47px;
+    margin-right: 105px;
     cursor: pointer;
 }
 .container .btn_clear_tasks{
@@ -40,7 +40,7 @@
 }
 .decor_container{
     background: #38938a;
-     max-width: 650px;
+     max-width: 680px;
      width: 100%;
      height: 20px;
      position: absolute;
