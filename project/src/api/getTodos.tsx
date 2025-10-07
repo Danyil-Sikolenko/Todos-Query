@@ -1,4 +1,4 @@
-import type { TodosDTO } from "../shared/types/TasksTypes"
+import type { TodosDTO,} from "../shared/types/TasksTypes"
 import { BASE_URL } from "../shared/ApiRoute"
 
 export const getTodos = async ({ page }:{ page:number }, {signal}: {signal?: AbortSignal}): Promise<TodosDTO[]> => {
