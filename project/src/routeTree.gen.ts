@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as UsersRouteImport } from './routes/users'
+import { Route as PostsRouteImport } from './routes/posts'
 import { Route as TaskIdRouteImport } from './routes/$taskId'
 import { Route as IndexRouteImport } from './routes/index'
 
 const UsersRoute = UsersRouteImport.update({
   id: '/users',
   path: '/users',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostsRoute = PostsRouteImport.update({
+  id: '/posts',
+  path: '/posts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TaskIdRoute = TaskIdRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$taskId': typeof TaskIdRoute
+  '/posts': typeof PostsRoute
   '/users': typeof UsersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$taskId': typeof TaskIdRoute
+  '/posts': typeof PostsRoute
   '/users': typeof UsersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$taskId': typeof TaskIdRoute
+  '/posts': typeof PostsRoute
   '/users': typeof UsersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$taskId' | '/users'
+  fullPaths: '/' | '/$taskId' | '/posts' | '/users'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$taskId' | '/users'
-  id: '__root__' | '/' | '/$taskId' | '/users'
+  to: '/' | '/$taskId' | '/posts' | '/users'
+  id: '__root__' | '/' | '/$taskId' | '/posts' | '/users'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   TaskIdRoute: typeof TaskIdRoute
+  PostsRoute: typeof PostsRoute
   UsersRoute: typeof UsersRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/users'
       fullPath: '/users'
       preLoaderRoute: typeof UsersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/posts': {
+      id: '/posts'
+      path: '/posts'
+      fullPath: '/posts'
+      preLoaderRoute: typeof PostsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$taskId': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   TaskIdRoute: TaskIdRoute,
+  PostsRoute: PostsRoute,
   UsersRoute: UsersRoute,
 }
 export const routeTree = rootRouteImport
